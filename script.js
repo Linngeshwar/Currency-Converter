@@ -1,3 +1,4 @@
+import dotenv from 'dotenv'
 const country_list = {
     "AED" : "AE",
     "AFN" : "AF",
@@ -210,7 +211,7 @@ function getExchangeRate(){
         return;
     }
     result.classList.remove("alert");
-    let url = `https://v6.exchangerate-api.com/v6/51eb527b42e7065a37971301/latest/${fromCurrency.value}`;
+    let url = `https://v6.exchangerate-api.com/v6/${process.env.api_key}/latest/${fromCurrency.value}`;
     fetch(url).then(
         response => response.json())
         .then(
